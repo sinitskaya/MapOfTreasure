@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\Task1\TreasureIsland\TreasureIsland\bin\Debug\TreasureIsland.exe.config
+C:\Users\User\Desktop\Task1\TreasureIsland\TreasureIsland\bin\Debug\TreasureIsland.exe
+C:\Users\User\Desktop\Task1\TreasureIsland\TreasureIsland\bin\Debug\TreasureIsland.pdb
+C:\Users\User\Desktop\Task1\TreasureIsland\TreasureIsland\obj\Debug\TreasureIsland.exe
+C:\Users\User\Desktop\Task1\TreasureIsland\TreasureIsland\obj\Debug\TreasureIsland.pdb
