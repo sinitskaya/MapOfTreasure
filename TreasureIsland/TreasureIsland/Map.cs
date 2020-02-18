@@ -352,7 +352,7 @@ namespace TreasureIsland
 
         public void PrintMap()
         {
-            void MaxPosition(List<Position> l, ref int tempX, ref int tempY) //максимальный х из списка позиций
+            void MaxPosition(List<Position> l, ref int tempX, ref int tempY) //максимальный х,y из списка позиций
             {
                 for (int i = 0; i < l.Count - 1; i++)
                 {

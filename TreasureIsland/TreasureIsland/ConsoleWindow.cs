@@ -32,44 +32,38 @@ namespace TreasureIsland
         public int Rows { get; set; } = 20;
         public int Columns { get; set; } = 40;
 
-        public void ChangeEmptyScreenshot()
+        public void ChangeAndPrintEmptyScreenshot() //заменить 
         {
-            /*for (int i = 0; i < Columns; i++)
+            for (int i = 0; i <= Columns ; i++)
             {
-                emptyScreenshot = String.Format("{0}", i);
+                Console.SetCursorPosition(i, 0);
+                Console.Write(i%10);
             }
-            for (int i = 0; i < Columns; i++)
-                for (int j = 0; j < Rows; j++)
+            for (int j = 0; j <= Rows; j++)
+            {
+                Console.SetCursorPosition(0, j);
+                Console.Write(j%10);
+            }
+            for (int i = 1; i < Columns; i++)
+                for (int j = 1; j < Rows; j++)
                 {
-                    emptyScreenshot = emptyScreenshot + String.Format("{0}", i);
-                    for (int k = 0; k < Columns - 2; k++)
-                    {
-                        emptyScreenshot = emptyScreenshot + String.Format("{0}", ".");
-                    }
-                    emptyScreenshot = emptyScreenshot + String.Format("{0}", "#");
-                }*/
+                    Console.SetCursorPosition(i, j);
+                    Console.Write(".");
+                }
+            for (int i = 1; i <= Columns; i++)
+            {
+                Console.SetCursorPosition(i, Rows);
+                Console.Write("#");
+            }
+            for (int j = 1; j <= Rows; j++)
+            {
+                Console.SetCursorPosition(Columns, j);
+                Console.Write("#");
+            }
         }
         public void SetupConsoleWindow(int x, int y)
         {
-            // Статический метод WriteLine системного класса Console выводит строку в консоль
-            //Console.WriteLine("Hello world!");
-
-            // У консольного окна есть размер самого окна и размер буфера
-            // Их можно установить так:
-            if (x > Columns)
-            {
-                Columns = x;
-                ChangeEmptyScreenshot();
-            }
-            if (y > Rows)
-            {
-                Rows = y;
-                ChangeEmptyScreenshot();
-            }
-            
             Console.SetWindowSize(Columns, Rows);
-            //Console.SetBufferSize(Columns + 1, Rows + 1); // задаём буфер с запасом, чтобы избежать нежелательной прокрутки окна
-            // Убираем курсор, если он не нужен
             Console.CursorVisible = false;
 
             // Мы можем поменять цвет фона и символов
@@ -84,11 +78,18 @@ namespace TreasureIsland
             // Мы можем выводить строку на экран, без перевода курсора на следующую строку методом Write
             Console.SetCursorPosition(0, 0); // Так можно задать позицию курсора - с этого места начнётся
                                              // вывод на консоль следующей командой .Write**
-            Console.Write(emptyScreenshot);
-
-            // Статические методы класса Math могут пригодится для решения первого задания.
-            // Так можно округлить число с плавающей точкой до целого по правилам арифметического округления.
-            
+            if (x > Columns || y > Rows)
+            {
+                Columns = x;
+                Rows = y;
+                Console.SetWindowSize(Columns, Rows);
+                Console.SetBufferSize(Columns + 2, Rows + 2);
+                ChangeAndPrintEmptyScreenshot();
+            }
+            else
+            {
+                Console.Write(emptyScreenshot);
+            }
         }
     }
 }

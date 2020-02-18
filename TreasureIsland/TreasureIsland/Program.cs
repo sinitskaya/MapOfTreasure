@@ -13,7 +13,7 @@ namespace TreasureIsland
             //Console.WriteLine("Введите номер карты: ");
             //string s = Console.ReadLine();
             //string mapFilePath = "../TestData/Map" + s + ".txt";
-            string mapFilePath = "../../../../TestData/Map2.txt";
+            string mapFilePath = "../../../../TestData/Map1.txt";
             Map map = new Map();
             map.ReadMapFile(mapFilePath);         
             map.PrintMap();
